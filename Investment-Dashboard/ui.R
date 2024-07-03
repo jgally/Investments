@@ -10,7 +10,8 @@ library(tidyverse)
 shinyUI(fluidPage(
   #Official content of the UI page
   dashboardPage(
-    dashboardHeader(title = "Investing for Your Future"),
+    dashboardHeader(title = "Investing for Your Future",
+                    titleWidth = 250),
     #Sidebar options
     dashboardSidebar(
       sidebarMenu(
@@ -42,7 +43,15 @@ shinyUI(fluidPage(
     ),
     #Here is the body content
     dashboardBody(
-      
+      #Adding custom CSS to make title bakcground the same color as the rest of the header
+      tags$head(tags$style(HTML('
+        .skin-blue .main-header .logo {
+          background-color: #3c8dbc;
+        }        
+        .skin-blue .main-header .logo:hover {
+          background-color: #3c8dbc;
+        }
+                                ')))
     )
   )
 ))
