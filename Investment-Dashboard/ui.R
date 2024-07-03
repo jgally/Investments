@@ -1,33 +1,48 @@
 #
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    https://shiny.posit.co/
+# 
 #
 
 library(shiny)
+library(shinydashboard)
+library(tidyverse)
 
-# Define UI for application that draws a histogram
-fluidPage(
-
-    # Application title
-    titlePanel("Investing for Your Future"),
-
-    # Sidebar with a slider input for number of bins
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-            plotOutput("distPlot")
-        )
+# Defining UI page with shiny dashboard
+shinyUI(fluidPage(
+  #Official content of the UI page
+  dashboardPage(
+    dashboardHeader(title = "Investing for Your Future"),
+    #Sidebar options
+    dashboardSidebar(
+      sidebarMenu(
+        menuItem("401K",
+                 tabName = "traditional",
+                 startExpanded = TRUE,
+                 menuSubItem("History",
+                             tabName = "tradHist"),
+                 menuSubItem("Calculator",
+                             tabName = "tradCalc")
+                 ),
+        menuItem("Roth IRA",
+                 tabName = "ira",
+                 startExpanded = TRUE,
+                 menuSubItem("History",
+                             tabName = "iraHist"),
+                 menuSubItem("Calculator",
+                             tabName = "iraCalc")
+                 ),
+        menuItem("Stock Investments",
+                 tabName = "stocks",
+                 startExpanded = TRUE,
+                 menuSubItem("Historical Data",
+                             tabName = "stockHist"),
+                 menuSubItem("Investment Calculator",
+                             tabName = "stockCalc")
+                 )
+      )
+    ),
+    #Here is the body content
+    dashboardBody(
+      
     )
-)
+  )
+))
