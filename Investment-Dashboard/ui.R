@@ -51,7 +51,18 @@ shinyUI(fluidPage(
         .skin-blue .main-header .logo:hover {
           background-color: #3c8dbc;
         }
-                                ')))
+                                '))),
+      #Starting with the 401k content, debating on whether or not to have differing input options (typing in should probably be best)
+      tabItem("tradCalc",
+              box(
+                title = "Let's Look at Your Numbers",
+                textInput("currentAge",
+                          label = "Current Age",
+                          value = "",
+                          width = "100%"),
+                actionButton("go", "Calculate")
+                #numericInput("retireAge", "Retiring Age")
+              ))
     )
   )
 ))
