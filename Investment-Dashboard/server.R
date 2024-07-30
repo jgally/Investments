@@ -9,10 +9,9 @@ library(shiny)
 server <- function(input, output, session) {
 
 #Testing to make sure I set up the age right
-  observeEvent(input$go, {
-    renderText({
+  output$age <- renderText({
     paste0("Your age is ", input$currentAge)
-  })
+    })
                
                
 
