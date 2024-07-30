@@ -60,7 +60,7 @@ shinyUI(fluidPage(
                           label = "Current Age",
                           value = "",
                           width = "100%"),
-                actionButton("go", "Calculate")
+                textOutput("age")
                 #numericInput("retireAge", "Retiring Age")
               ))
     )
