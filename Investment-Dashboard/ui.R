@@ -54,14 +54,52 @@ shinyUI(fluidPage(
                                 '))),
       #Starting with the 401k content, debating on whether or not to have differing input options (typing in should probably be best)
       tabItem("tradCalc",
-              box(
+              fluidRow(
+                column(4,
+                       box(
                 title = "Let's Look at Your Numbers",
+                #current age
                 textInput("currentAge",
                           label = "Current Age",
-                          value = "",
+                          value = "30",
                           width = "100%"),
-                textOutput("age")
-                #numericInput("retireAge", "Retiring Age")
+                textOutput("age"),
+                #expected retirement age
+                numericInput("retireAge", 
+                            label = "Retiring Age",
+                            value = "65",
+                            min = 1,
+                            max = 120),
+                #current savings of 401k
+                numericInput("currentSavings"
+                             label = "Current Amount Invested",
+                             value = "30000"),
+                #present salary
+                numericInput("salary",
+                             label = "Your Salary",
+                             value = ""),
+                #salary increase
+                textInput("raises",
+                          label = "Estimated Yearly Raises",
+                          placeholder = "%"),
+                #monthly contribution
+                textInput("contributions",
+                          label = "Your 401k Contributions",
+                          placeholder = "10%"),
+                #employer match
+                textInput("eMatch",
+                          label = "Employer Match",
+                          placeholder = "5%"),
+                #estimated rate of return
+                numericInput("401kROI",
+                             label = "Expected Ra5te of Return on Investments",
+                             placeholder = "7%")
+                
+                
+              ),
+              column(8,
+                    plotOutput("401k",
+                              "Estimated 401k Investments")))  
               ))
     )
   )
