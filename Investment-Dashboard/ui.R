@@ -43,7 +43,8 @@ shinyUI(fluidPage(
     ),
     #Here is the body content
     dashboardBody(
-      #Adding custom CSS to make title bakcground the same color as the rest of the header
+      #Adding custom CSS to make title back
+      ground the same color as the rest of the header
       tags$head(tags$style(HTML('
         .skin-blue .main-header .logo {
           background-color: #3c8dbc;
