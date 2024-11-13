@@ -5,7 +5,7 @@
 library(shiny)
 library(shinydashboard)
 library(tidyverse)
-
+library(shinyWidgets)
 # Defining UI page with shiny dashboard
 shinyUI(fluidPage(
   #Official content of the UI page
@@ -33,7 +33,7 @@ shinyUI(fluidPage(
           background-color: #3c8dbc;
         }
                                 '))),
-      #Starting the tabItems
+      #Starting the tabItems so I can house multiple tabItem
       tabItems(
         tabItem(tabName = "trad",
                 h2("Traditional 401K Calculator"),
@@ -74,7 +74,14 @@ shinyUI(fluidPage(
                       #estimated rate of return
                       numericInput("401kROI",
                                 label = "Expected Rate of Return on Investments",
-                                value = "7")
+                                value = "7"),
+                      #testing percent icon
+                      numericInputIcon(
+                        inputId = "ex1",
+                        label = "With an icon",
+                        value = 10,
+                        icon = icon("percent", "fa-pull-right")
+                      )
                 
               )  
               )),
