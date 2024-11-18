@@ -40,11 +40,12 @@ shinyUI(fluidPage(
                   fluidRow(
                     box(title = "Let's Look at Your Numbers",
                       #current age
-                      textInput("currentAge",
+                      numericInput("currentAge",
                                 label = "Current Age",
                                 value = "30",
                                 width = "100%"),
                       textOutput("age"),
+                      textOutput("years"),
                       #expected retirement age
                       numericInput("retireAge", 
                                 label = "Retiring Age",
@@ -60,19 +61,19 @@ shinyUI(fluidPage(
                                 label = "Your Salary",
                                 value = ""),
                       #salary increase
-                      textInput("raises",
+                      numericInput("raises",
                                 label = "Estimated Yearly Raises",
-                                placeholder = "%"),
+                                value = "3"),
                       #monthly contribution
-                      textInput("contributions",
+                      numericInput("contributions",
                                 label = "Your 401k Contributions",
-                                placeholder = "10%"),
+                                value = "10"),
                       #employer match
-                      textInput("eMatch",
+                      numericInput("eMatch",
                                 label = "Employer Match",
-                                placeholder = "5%"),
+                                value = "5"),
                       #estimated rate of return
-                      numericInput("401kROI",
+                      numericInput("kROI",
                                 label = "Expected Rate of Return on Investments",
                                 value = "7"),
                       #testing percent icon
